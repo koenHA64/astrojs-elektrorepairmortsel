@@ -2,15 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
-import carouselImg1 from '../assets/images/1.jpg'
-import carouselImg2 from '../assets/images/2.jpg'
-import carouselImg3 from '../assets/images/3.jpg'
-import carouselImg4 from '../assets/images/4.jpg'
-import carouselImg5 from '../assets/images/5.jpg'
-import carouselImg6 from '../assets/images/6.jpg'
-import carouselImg7 from '../assets/images/7.jpg'
-import carouselImg8 from '../assets/images/8.jpg'
-import carouselImg9 from '../assets/images/9.jpg'
+import electronicsImg from '../assets/images/electronics-min.jpg'
+import electricsImg from '../assets/images/electrics-min.jpg'
+import toysImg from '../assets/images/toys-min.jpg'
+import restaurationsImg from '../assets/images/restaurations-min.jpg'
 
 const title = 'Diensten';
 const description = 'Ik herstel uw elektrische en/of elektronische toestellen. Ook de reparatie van oud speelgoed is mogelijk.';
@@ -22,8 +17,9 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
         <h2 class="mb-12 col-span-6">Heeft u een elektronisch toestel dat aan reparatie toe is? Een oud stuk speelgoed dat niet meer werkt als voorheen? Wij kunnen u helpen! Hieronder een overzicht van de diensten we aanbieden.</h2>
         <Card 
             cardTitle="Elektronische toestellen" 
-            cardImage={carouselImg1}
-            class="mb-12"
+            cardImage={electronicsImg}
+            ratioW="9"
+            ratioH="6"
         >
             <p>Elektronica kent geen geheimen voor mij. Ik werkte vroeger bij Pioneer op de hersteldienst, en ontwierp later elektronische apparaten bij Agfa.</p>
             <p>Hoe ouder het toestel, hoe makkelijker te herstellen!</p>
@@ -31,32 +27,50 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
 
         <Card 
             cardTitle="Elektrische toestellen" 
-            cardImage={carouselImg2}
-            class="mb-12"
+            cardImage={electricsImg}
+            ratioW="9"
+            ratioH="7"
         >
-            <p>Elektronica kent geen geheimen voor mij. Ik werkte vroeger bij Pioneer op de hersteldienst, en ontwierp later elektronische apparaten bij Agfa.</p>
-            <p>Hoe ouder het toestel, hoe makkelijker te herstellen!</p>
+            <p>Ik werk al heel wat jaren ook mee in verschillende Repair Cafés en heb al heel wat soorten toestellen hersteld.</p>
+            <p>Recentelijk bv. een droogkast, stofzuiger en printer.</p>
+            <p>Voorlopig voer ik geen herstelling uit van grotere toestellen (een vaatwasser, ijskast, wasmachine,...).</p>
         </Card>
         
         <Card 
             cardTitle="Speelgoed" 
-            cardImage={carouselImg5}
+            cardImage={toysImg}
+            ratioW="12"
+            ratioH="10"
         >
             <p>Een babygym die geen geluid meer maakt? Een treintje dat niet meer rijdt? Een kinderkeukentje met een beschadigde deur?</p>
-            <p>Het kan vaak nog hersteld worden, weeral een verkleining van de afvalberg.</p>
+            <p>Het kan vaak nog hersteld worden. Weeral een verkleining van de afvalberg!</p>
+        </Card> 
+        <Card 
+            cardTitle="Restauraties" 
+            cardImage={restaurationsImg}
+            ratioW="6"
+            ratioH="9"
+        >
+            <p>Misschien heeft u nog oude toestellen waar u aan gehecht bent?</p>
+            <p>Ik kan die wellicht een nieuw leven geven!</p>
+            <p>Zo bijvoorbeeld een 50's automaat van het merk 'Le Tigre' (zie foto).</p>
         </Card>
     </div>
 </Layout>
 
 <style lang="scss">
     @import "../style/_variables.scss";
+    
+    p + p {
+        margin-top: 1.25rem;
+    }
 
 </style>
 
 
-<script>
+<!-- <script>
     const allCards = document.querySelectorAll('.card');
     allCards.forEach(card => {
         card.querySelector(".card__image").style.minHeight = card.querySelector(".card__left").getBoundingClientRect().height / 2 * 3 + "px";
     });
-</script>
+</script> -->
