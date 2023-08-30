@@ -24,10 +24,7 @@ const { problem, symptoms, causesSolutions } = Astro.props
                                         {causesSolutions.map(item =>      
                                                         <li>
                                                                 {item.cause}
-                                                                <div>
-                                                                        <Icon name="accordeon-solution-arrow" />
-                                                                        <span>{item.solution}</span>
-                                                                </div>
+                                                                <span>{item.solution}</span>
                                                         </li>
                                                 )
                                         }
@@ -69,9 +66,6 @@ const { problem, symptoms, causesSolutions } = Astro.props
                 .accordeon__problem {
 
                         &:hover {
-                                cursor: pointer;
-                                transition: color 0.3s ease-in-out;
-
                                 h4 {
                                         color: $orange;
 
@@ -90,6 +84,9 @@ const { problem, symptoms, causesSolutions } = Astro.props
                                 font-size: 2.5rem;
                                 font-weight: 700;
                                 position: relative;
+                                letter-spacing: 2px;
+                                cursor: pointer;
+                                transition: color 0.3s ease-in-out;
 
                                 &::before {
                                         content:"Probleem";
@@ -201,10 +198,6 @@ const { problem, symptoms, causesSolutions } = Astro.props
                                                 left: -2.5rem;
                                                 top: -4px;
                                         }
-
-                                        svg {
-                                                width: 1.2rem;
-                                        }
                                 }
                         }
                 }
@@ -220,13 +213,17 @@ const { problem, symptoms, causesSolutions } = Astro.props
                                 content: "Mogelijke oorzaken & oplossingen";
                         }
 
-                        li div {
-                                padding-left: 2.5rem;
+                        li span {
+                                padding-top:6px;
+                                margin-left: 3.5rem;
                                 display: flex;
                                 gap: 1rem;
+                                position: relative;
 
-                                span {
-                                        padding-top:6px;
+                                &::before {
+                                        content: url('/assets/svg/accordeon-solution-arrow.svg');
+                                        position: absolute;
+                                        left: -1.8rem;
                                 }
                         }
                 }
