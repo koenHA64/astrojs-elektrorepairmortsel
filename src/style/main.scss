@@ -1,0 +1,118 @@
+@import "helper";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $body-font;
+  color: $white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-transform: uppercase;
+    font-family: $headline-font;
+    line-height: 1.2 !important;
+    color: $darkbrown;
+    font-size: 4.75rem;
+    font-weight: 900;
+  }
+
+  h2 {
+    color: $black;
+    font-size: 1.625rem;
+    position: relative;
+    margin-left: var(--gap);
+    line-height: 1.3;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: calc(100% + 10px);
+      width: 36px;
+      height: 2px;
+      background-color: $black;
+    }
+
+    span {
+      display: block;
+
+      + span {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+::selection {
+  background-color: $orange;
+  color: $white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1rem 0.7rem 1.2rem;
+  background-color: $orange !important;
+  color: $white;
+  font-size: 1.375rem;
+  font-family: $headline-font;
+  transition: background-color 0.2s ease-in-out;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 15px 15px 15px 50px;
+  &:hover {
+    background-color: darken($orange, 10%) !important;
+  }
+
+  &--gap {
+    margin-left: var(--gap);
+  }
+}
+
+.logo {
+  color: $orange;
+  line-height: 2.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: $headline-font;
+  letter-spacing: 1.2px;
+
+  &--footer {
+    font-size: 2.5rem;
+  }
+}
+
+footer {
+  background-color: $darkbrown;
+
+  a {
+    transition: color 0.2s ease-in-out;
+    
+    &:hover {
+      color: $orange;
+    }
+  }
+}

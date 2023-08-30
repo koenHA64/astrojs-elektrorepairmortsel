@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Accordeon from '../components/accordeon/Accordeon.astro';
+import AccordeonHeader from '../components/accordeon/AccordeonHeader.astro';
+import AccordeonContent from '../components/accordeon/AccordeonContent.astro';
+
+const title = 'Hersteltips';
+const description = 'Wilt u ontdekken waarom uw elektronisch apparaat het niet meer doet en hoe dit eventueel kan verhelpen?';
+---
+<Layout title={title} description={description}>
+    <div class="container grid lg:grid-cols-12 lg:grid-flow-row">
+        <h1 class="text-4xl col-span-12 sm:text-6xl mb-12">Hersteltips</h1>
+        <h2 class="mb-12 col-span-6"><span>Wilt u ontdekken wat er juist mis is met uw apparaat zodat u het indien nodig zelf kan herstellen?</span><span>Hieronder enkele tips voor enkele veelvoorkomende problemen. Klik op het icoontje voor meer info.</span></h2>
+        
+        <div class="col-span-11 col-start-2">
+            <Accordeon>
+                <AccordeonHeader 
+                    title="CD speler" 
+                    icon="cd-logo"
+                />
+                <AccordeonContent 
+                    problem="Speler start niet" 
+                    symptoms={
+                        [
+                            "na het opzetten komt er niets op het scherm en branden er geen lampjes"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "geen spanning op het stopcontact",
+                                solution: "probeer een ander stopcontact"
+                            },
+                            {
+                                cause: "probleem met de schakelaar of kabel",
+                                solution: "herstellen"
+                            },
+                            {
+                                cause: "voeding defect",
+                                solution: "moeilijk/duur om te herstellen"
+                            },
+                            {
+                                cause: "interne zekering gesprongen",
+                                solution: "herstellen"
+                            }
+
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="CD wordt niet gelezen" 
+                    symptoms={
+                        [
+                            "foutcode bij het bij het lezen van de CD",
+                            "leeskop gaat continu over en 't weer bij zoeken naar een track"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "de lens van de lezer is vuil (komt weinig voor)",
+                                solution: "moet gereinigd worden"
+                            },
+                            {
+                                cause: "de kop van de lezer (laser, lens) is defect (frequent)",
+                                solution: "kan niet hersteld worden"
+                            }
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="CD tray beweegt" 
+                    symptoms={
+                        [
+                            "CD tray opent niet of beweegt moeilijk"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "rubber riempje van tray is verduurd / gebroken (frequent)",
+                                solution: "kan vervangen worden"
+                            },
+                            {
+                                cause: "intern mechanisme uit sync wegens met hand bewegen tray",
+                                solution: "kan hersteld worden"
+                            },
+                            {
+                                cause: "intern mechanisme (tandwielen) beschadigd",
+                                solution: "moeilijk te herstellen"
+                            }
+                        ]
+                    }
+                />
+            </Accordeon>
+
+            <Accordeon>
+                <AccordeonHeader 
+                    title="Cassette speler" 
+                    icon="cassette-logo"
+                />
+                <AccordeonContent 
+                    problem="Speler start niet" 
+                    symptoms={
+                        [
+                            "na het opzetten komt er niets op het scherm en branden er geen lampjes"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "geen spanning op het stopcontact",
+                                solution: "probeer een ander stopcontact"
+                            },
+                            {
+                                cause: "probleem met de schakelaar of kabel",
+                                solution: "herstellen"
+                            },
+                            {
+                                cause: "voeding defect",
+                                solution: "moeilijk/duur om te herstellen"
+                            },
+                            {
+                                cause: "interne zekering gesprongen",
+                                solution: "herstellen"
+                            },
+                            {
+                                cause: "batterij leeg",
+                                solution: "vervangen of meten"
+                            },
+                            {
+                                cause: "batterij slecht geplaatst",
+                                solution: "positie goed nakijken en terugplaatsen"
+                            },
+                            {
+                                cause: "geoxideerd contact met batterij",
+                                solution: "herstellen"
+                            },
+                            {
+                                cause: "batterij uitgelopen",
+                                solution: "contacten terug proper maken, anders herstellen"
+                            }
+
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="Cassette draait slecht" 
+                    symptoms={
+                        [
+                            "geen geluid, door het venstertje zie je de cassette wieltjes niet bewegen",
+                            "toonhoogte van geluid veranderd steeds / bandje wordt 'opgegeten'"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "aandrijfriempjes zijn verduurd of opgelost (frequent na 15 jaar)",
+                                solution: "herstellen"
+                            },
+                            {
+                                cause: "mechanisme is beschadigd",
+                                solution: "herstellen (moeilijk)"
+                            }
+                        ]
+                    }
+                />
+            </Accordeon>
+
+            <Accordeon>
+                <AccordeonHeader 
+                    title="Strijkijzer" 
+                    icon="iron-logo"
+                />
+                <AccordeonContent 
+                    problem="Geen stoom en geen warmte in strijkijzer" 
+                    symptoms={
+                        [
+                            "er branden wel lichtjes maar strijkijzer warmt niet op en totaal geen stoom",
+                            "mogelijks een foutcode"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "thermische zekering gesprongen (frequent)",
+                                solution: "zekering vervangen (= belangrijk!), zeker nakijken waarom de zekering sprong, anders herhaalt zich dit later. Mogelijke oorzaak kan zijn dat het apparaat een aantal keer snel op/af gezet werd"
+                            }
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="Geen stoom maar wel warmte in strijkijzer" 
+                    symptoms={
+                        [
+                            "strijkijzer warmt op maar er is totaal geen stoom"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "thermische zekering gesprongen (frequent)",
+                                solution: "zekering vervangen"
+                            },
+                            {
+                                cause: "de stoomschakelaar is totaal verkalkt (frequent)",
+                                solution: "losmaken (soms) of vervangen (meestal, duur)"
+                            }
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="Te weinig stoom" 
+                    symptoms={
+                        [
+                            "er komt minder stoom uit dan voorheen"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "verkalking in stoomgenerator of strijkijzer (frequent)",
+                                solution: "extra ontkalken (bv. met citroenzuur)"
+                            },
+                            {
+                                cause: "gaatjes in zool verstopt",
+                                solution: "gaatjes ontkalken en terug vrijmaken"
+                            }
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="Stoomlek" 
+                    symptoms={
+                        [
+                            "er lekt water/stoom uit generator of strijkijzer"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "verkalking in stoomgenerator of strijkijzer (frequent)",
+                                solution: "extra ontkalken (bv. met citroenzuur)"
+                            },
+                            {
+                                cause: "gaatjes in zool verstopt",
+                                solution: "gaatjes ontkalken en terug vrijmaken"
+                            }
+                        ]
+                    }
+                />
+            </Accordeon>
+        </div> 
+    </div>
+</Layout>
+
+<style lang="scss">
+    @import "../style/_variables.scss";
+
+    
+
+</style>

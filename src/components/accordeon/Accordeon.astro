@@ -1,0 +1,16 @@
+
+
+<article class="accordeon">
+        <slot />
+</article>
+
+<style lang="scss">
+        @import "../../style/_variables.scss";
+
+        .accordeon {
+                &:not(:last-of-type) {
+                        margin-bottom: 4rem;
+                }
+        }
+        
+</style>

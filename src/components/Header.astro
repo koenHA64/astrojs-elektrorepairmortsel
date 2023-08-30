@@ -1,0 +1,144 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<header>
+	<div class="container flex justify-between lg:grid lg:grid-cols-12 lg:gap-5 items-end pt-6 pb-4">
+		<div class="logo lg:col-span-8"><a href="/">Elektro repair Mortsel</a></div>
+		<div class="togglebox">
+			<span></span>
+		</div>
+		<nav class="lg:block lg:col-span-4">
+			<ul class="flex flex-col lg:grid lg:grid-cols-4 lg:gap-5 container pt-4 lg:pt-0 pb-6 lg:pb-0">
+				<li class={currentPath === "over-ons" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+          <a href="/over-ons">Over ons</a>
+        </li>
+				<li class={currentPath === "diensten" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+          <a href="/diensten">Diensten</a>
+        </li>
+				<li class={currentPath === "hersteltips" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+          <a href="/hersteltips">Hersteltips</a>
+        </li>
+				<li class={currentPath === "contact" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+          <a href="/contact">Contact</a>
+        </li>
+			</ul>
+		</nav>
+		</div>
+</header>
+
+<script>
+	document.querySelector(".togglebox").addEventListener("click", () => {
+		document.querySelector("header").classList.toggle("dropdown-active");
+  });
+</script>
+
+<style lang="scss">
+  @import "../style/_variables.scss";
+
+  header {
+    position: sticky;
+    top: 0;
+    background-color: $darkbrown;
+    z-index: 99;
+
+    &.border-active > .container {
+      border-bottom: 1px solid $white;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      margin-top: 4px;
+    }
+    
+    .togglebox {
+      @media (min-width: 1024px) {
+        display:none;
+      }
+      height: 26px;
+      width: 32px;
+      cursor: pointer;
+
+      span, span::before, span::after {
+        background: $white; 
+        content: '';
+        position: absolute;
+        width: 32px;
+        height: 4px;
+        margin-top:11px;
+        transform: rotate(180deg);
+        transition: .5s ease-in-out;
+      }
+
+      span::before {
+        margin-top:-11px;
+      }
+
+      span::after {
+          margin-top:11px;
+      }
+    }
+
+    &.dropdown-active {
+      .togglebox {
+        span {
+          background: transparent;
+
+          &::before {
+            margin-top: 0;
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            transform: rotate(-45deg);
+            margin-top: 0;
+          }
+        }
+      }
+
+      nav {
+        max-height: 500px;
+
+        ul {
+          border-bottom: 1px solid $white;
+        }
+      }
+    }
+
+    nav { 
+      @media (max-width: 1024px) {
+            position: absolute;
+            width: 100%;
+            left:0;
+            top: 100%;
+            max-height: 0px;
+            overflow: hidden;
+            background: $darkbrown;
+            transition: max-height 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+            filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.5));
+      }
+
+      ul {
+        @media (min-width: 1024px) {
+          max-width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        li {
+          font-size: 1rem;
+          a {
+            transition: color 0.2s ease-in-out;
+            &:hover {
+              color: $orange;
+            }
+          }
+          &.active a {
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+</style>

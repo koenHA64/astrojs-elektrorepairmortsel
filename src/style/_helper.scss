@@ -1,0 +1,43 @@
+.helper-col, .helper-col--green, .helper-col--blue, .helper-col--yellow {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -100vh;
+        left: 0;
+        width: 1px;
+        height: 200vh;
+        background-color: red;
+        z-index: 9;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -100vh;
+        right: 0;
+        width: 1px;
+        height: 200vh;
+        background-color: red;
+        z-index: 9;
+    }
+
+    &.helper-col--green {
+        &::before, &::after {
+            background-color: green;
+        }
+    }
+
+    &.helper-col--blue {
+        &::before, &::after {
+            background-color: blue;
+        }
+    }
+
+    &.helper-col--yellow {
+        &::before, &::after {
+            background-color: yellow;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Cookie policy';
+const description = 'Cookie policy van Elektro repair Mortsel';
+---
+<Layout description={description} title={title}>         
+    <div class="container grid grid-cols-12 lg:gap-10 auto-rows-auto">
+        <div class="col-span-8 flex flex-col">
+                <h1 class="text-4xl sm:text-6xl mb-12">Cookie policy</h1>
+                <div>
+                        <h2>1. Wat zijn cookies?</h2>
+                        <p>Cookies zijn kleine tekstbestanden die op uw apparaat worden geplaatst wanneer u onze website bezoekt. Ze worden vaak gebruikt om informatie te verzamelen over hoe bezoekers met een website omgaan, om de website beter te laten functioneren en om de gebruikerservaring te verbeteren.</p>
+                </div>
+                <div>
+                        <h2>2. Welke cookies gebruiken we en waarom?</h2>
+                        <p>We gebruiken de volgende categorieën cookies op onze website:</p>
+                        <ul>
+                        <li><strong>Strikt noodzakelijke cookies:</strong> Deze cookies zijn essentieel voor het functioneren van onze website. Ze stellen u in staat om door de website te navigeren en de functies te gebruiken, zoals het invullen van formulieren en het inloggen op beveiligde gebieden.</li>
+                        <li><strong>Prestatiecookies:</strong> Deze cookies verzamelen informatie over hoe bezoekers onze website gebruiken, zoals welke pagina's het vaakst worden bezocht en of ze foutmeldingen ontvangen. Deze informatie wordt gebruikt om de werking van de website te verbeteren.</li>
+                        <li><strong>Functionele cookies:</strong> Deze cookies onthouden de keuzes die u maakt op onze website, zoals uw voorkeurstaal en regio. Ze kunnen ook worden gebruikt om u te voorzien van aangepaste functies en inhoud.</li>
+                        <li><strong>Targeting cookies:</strong> Deze cookies worden gebruikt om uw surfgedrag te volgen en om profielen van uw interesses op te bouwen. Ze worden vaak gebruikt voor advertenties die relevanter zijn voor u en uw interesses.</li>
+                        </ul>
+                </div>
+                <div>
+                        <h2>3. Cookies van derden</h2>
+                        <p>We kunnen ook cookies van derden gebruiken, zoals die van analytics-services of sociale media platforms. Deze derden kunnen hun eigen cookies op uw apparaat plaatsen en informatie verzamelen volgens hun eigen cookiebeleid.</p>
+                </div>
+                <div>
+                        <h2>4. Beheer van cookies</h2>
+                        <p>U kunt uw voorkeuren beheren met betrekking tot het gebruik van cookies via uw browserinstellingen. U kunt cookies blokkeren, verwijderen of instellen dat u wordt gewaarschuwd voordat er cookies worden geplaatst. Houd er rekening mee dat het uitschakelen van cookies mogelijk invloed heeft op de functionaliteit van onze website.</p>
+                </div>
+                <div>  
+                        <h2>5. Wijzigingen in ons cookiebeleid</h2>
+                        <p>We kunnen dit cookiebeleid van tijd tot tijd bijwerken om veranderingen in onze praktijken of wettelijke vereisten weer te geven. We raden u aan deze pagina regelmatig te controleren op updates.</p>
+                </div>
+                <div>    
+                        <h2>6. Neem contact met ons op</h2>
+                        <p>Als u vragen heeft over ons cookiebeleid of over hoe we cookies gebruiken, kunt u contact met ons opnemen via <a href="/contact">onze contactpagina</a>.</p>
+                </div>
+                <div>   
+                        <p>Dank u voor het bezoeken van Elektro Repair Mortsel en voor uw vertrouwen in ons gebruik van cookies om uw online ervaring te verbeteren.</p>
+                </div>
+        </div>
+</Layout>
+
+<style lang="scss">
+    @import "../style/_variables.scss";
+        
+    h2::before {
+        top: 16px !important;
+    }
+
+    a {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $darkbrown;
+            transform: scaleX(1);
+            transform-origin: right center;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            &::after {
+                transform: scaleX(0);
+            }
+        }
+}
+
+    div:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-family: $headline-font;
+        text-transform: uppercase;
+        margin-bottom: 1rem !important;
+    }
+
+    p, li {
+        font-size: 1.375rem;
+        color: $black;
+        padding-left: var(--gap);
+
+        + p, + ul {
+                margin-top: 1rem;
+        }
+    }
+
+    li + li {
+        margin-top: 0.5rem;
+    }
+
+    
+</style>
