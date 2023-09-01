@@ -7,18 +7,18 @@ const title = 'Over Elektro repair Mortsel';
 const description = 'Over Elektro repair Mortsel, een eenmansreparatiedienst voor al uw elektrische en elektronische toestellen.';
 ---
 
-<Layout title={title} description={description}>
-    <div class="container grid grid-cols-12 lg:gap-10">
-        <div class="col-span-5 flex flex-col justify-between">
-            <h1 class="text-4xl sm:text-6xl mb-12">Over ons</h1>
-            <h2 class="mb-12"><span>Elektro repair Mortsel een eenmansdienst die u helpt bij het herstellen van allerhande (elektronische) voorwerpen.</span>
+<Layout title={title} description={description} classes="md:pt-24 pb-24 md:pb-40">
+    <div class="md:container flex flex-col-reverse md:flex-row xl:grid xl:grid-cols-12 gap-10">
+        <div class="content__text container flex-1 xl:col-span-5 flex flex-col">
+            <h1 class="mb-8">Over ons</h1>
+            <h2 class="mb-8"><span>Elektro repair Mortsel een eenmansdienst die u helpt bij het herstellen van allerhande (elektronische) voorwerpen.</span>
                 <span>Ik heb uitgebreide ervaring in de hersteldienst van Pioneer en ontwikkelde later als ingenieur optomechanische en elektronische toestellen bij Agfa.</span>
                 <span>Ook ben ik actief bij het populaire <a href="https://www.vzwtransitiezuidtrant.be/repair-caf%C3%A9" target="_blank">Repair Café Zuidrand</a>.</span>
             </h2>
             <a href="/diensten" class="btn btn--gap mr-auto">Ontdek onze diensten</a>
         </div>
-        <div class="col-span-7">
-            <img src={laboImage} alt="Elektro repair Mortsel" width="800" height=600 />
+        <div class="flex-1 self-stretch xl:col-span-7">
+            <img class="content__image mb-6 md:mt-5" src={laboImage} alt="Elektro repair Mortsel" />
         </div>
     </div>
 </Layout>
@@ -49,10 +49,35 @@ const description = 'Over Elektro repair Mortsel, een eenmansreparatiedienst voo
         }
     }
 
-    img {
-        height:100% !important;
+    img.content__image {
         object-fit: cover;
-        border: 20px solid $darkbrown;
+        border: 20px solid $black;
         border-radius: 50px 50px 290px 50px;
+        aspect-ratio: 6/5;
+
+        
+        @media (max-width: 1280px) {
+            border-radius: 50px 50px 200px 50px;
+            border:14px solid $black;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            border-radius: 0 0 100px 0;
+            border: 10px solid $darkbrown;
+            border-top: 0;
+            border-left:0;
+            height: 35vh;
+            width: 100vw;
+            margin-right: -10px;
+        }
+    }
+
+    .content__text {
+        @media (min-width: 768px) {
+          max-width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
     }
 </style>

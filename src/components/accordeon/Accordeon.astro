@@ -1,6 +1,6 @@
 
 
-<article class="accordeon">
+<article class="accordeon grid grid-cols-12 md:grid-cols-11 col-span-12 md:col-span-11">
         <slot />
 </article>
 
@@ -8,6 +8,7 @@
         @import "../../style/_variables.scss";
 
         .accordeon {
+
                 &:not(:last-of-type) {
                         margin-bottom: 4rem;
                 }

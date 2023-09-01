@@ -9,11 +9,11 @@ const title = 'Hersteltips';
 const description = 'Wilt u ontdekken waarom uw elektronisch apparaat het niet meer doet en hoe dit eventueel kan verhelpen?';
 ---
 <Layout title={title} description={description}>
-    <div class="container grid lg:grid-cols-12 lg:grid-flow-row">
-        <h1 class="text-4xl col-span-12 sm:text-6xl mb-12">Hersteltips</h1>
-        <h2 class="mb-12 col-span-6"><span>Wilt u ontdekken wat er juist mis is met uw apparaat zodat u het indien nodig zelf kan herstellen?</span><span>Hieronder enkele tips voor enkele veelvoorkomende problemen. Klik op het icoontje voor meer info.</span></h2>
+    <div class="container grid grid-cols-12">
+        <h1 class="col-span-12 mb-8">Hersteltips</h1>
+        <h2 class="mb-12 col-span-12 sm:col-span-10 md:col-span-8 lg:col-span-6"><span>Wilt u ontdekken wat er juist mis is met uw apparaat zodat u het indien nodig zelf kan herstellen?</span><span>Hieronder enkele tips voor enkele veelvoorkomende problemen. Klik op het icoontje voor meer info.</span></h2>
         
-        <div class="col-span-11 col-start-2">
+        <div class="col-span-12 md:col-span-11 md:col-start-2 grid grid-cols-12 md:grid-cols-11">
             <Accordeon>
                 <AccordeonHeader 
                     title="CD speler" 

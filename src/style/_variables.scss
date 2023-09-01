@@ -15,8 +15,6 @@ $black: #2B2B2B;
 $white: #fff;
 
 :root {
-    --sidepadding: 1rem;
-    --gap: 120px;
     font-family: $body-font;
 }
 
@@ -28,18 +26,18 @@ $white: #fff;
 
 @media (min-width: 768px) {
     :root {
-        --sidepadding: 3rem;
+        --gap: 40px;
     }
 }
 
 @media (min-width: 1024px) {
     :root {
-        --sidepadding: 4rem;
+        --gap: 60px;
     }
 }
 
 @media (min-width: 1280px) {
     :root {
-        --sidepadding: 5rem;
+        --gap: 120px;
     }
 }

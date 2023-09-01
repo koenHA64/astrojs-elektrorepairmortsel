@@ -1,20 +1,15 @@
 ---
-const { cardTitle, cardImage, ratioW, ratioH } = Astro.props
-
-const aspectRatio = {
-    aspectRatio: `${ratioW}/${ratioH}`
-}
+const { cardTitle, cardImage } = Astro.props
 ---
 
-<article class="card grid lg:grid lg:grid-cols-11 lg:col-span-11">
-    <div class="card__left col-span-5 pt-5 pb-16 pl-8">
+<article class="card flex flex-col-reverse sm:grid col-span-12 grid-cols-12 md:grid-cols-11 md:col-span-11">
+    <div class="card__left sm:col-span-6 md:col-span-5 pt-3 pb-8 px-4 sm:pt-4 md:pt-5 sm:pb-12 md:pb-16 sm:pl-6 md:pl-8">
         <h3 class="mb-4">{cardTitle}</h3>
         <div class="card__description">
             <slot />
         </div>
     </div>
-    <img src={cardImage} alt={cardTitle} class="card__image col-span-6" style={aspectRatio} />
-</article>
+    <img src={cardImage} alt={cardTitle} class="card__image sm:col-span-6" />
 
 <style lang="scss">
     @import "../style/_variables.scss";
@@ -26,12 +21,133 @@ const aspectRatio = {
             margin-bottom: 4.5rem;
         }
 
+        &:nth-of-type(1) img {
+            aspect-ratio: 5 / 3;
+
+            @media (min-width: 640px) {
+                aspect-ratio: 6 / 9;
+            }
+
+            @media (min-width: 720px) {
+                aspect-ratio: 6 / 8;
+            }
+
+            @media (min-width: 768px) {
+                aspect-ratio: 6 / 9;
+            }
+
+            @media (min-width: 1024px) {
+                aspect-ratio: 6 / 7;
+            }
+
+            @media (min-width: 1280px) {
+                aspect-ratio: 9 / 8;
+            }
+        }
+        
+        &:nth-of-type(2) img {
+            aspect-ratio: 5 / 3;
+
+            @media (min-width: 640px) {
+                aspect-ratio: 6 / 11;
+            }
+
+            @media (min-width: 720px) {
+                aspect-ratio: 6 / 11;
+            }
+
+            @media (min-width: 768px) {
+                aspect-ratio: 6 / 11;
+            }
+
+            @media (min-width: 1024px) {
+                aspect-ratio: 7 / 10;
+            }
+
+            @media (min-width: 1280px) {
+                aspect-ratio: 7 / 7;
+            }
+        }
+
+        &:nth-of-type(3) img {
+            aspect-ratio: 5 / 4;
+
+            @media (min-width: 640px) {
+                aspect-ratio: 6 / 9;
+            }
+
+            @media (min-width: 768px) {
+                aspect-ratio: 7 / 10;
+            }
+
+            @media (min-width: 1024px) {
+                aspect-ratio: 7 / 9;
+            }
+
+            @media (min-width: 1280px) {
+                aspect-ratio: 9 / 7;
+            }
+        }
+
+        &:nth-of-type(4) img {
+            aspect-ratio: 5 / 7;
+
+            @media (min-width: 640px) {
+                aspect-ratio: 6 / 11;
+            }
+
+            @media (min-width: 720px) {
+                aspect-ratio: 6 / 11;
+            }
+
+            @media (min-width: 768px) {
+                aspect-ratio: 6 / 11;
+            }
+
+            @media (min-width: 1024px) {
+                aspect-ratio: 7 / 10;
+            }
+
+            @media (min-width: 1280px) {
+                aspect-ratio: 7 / 7;
+            }
+        }
+
+        
+        @media (max-width: 640px) {
+            
+            &:nth-child(odd) .card__left {
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 20px;
+            }
+            
+
+            &:nth-child(even) .card__left {
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 40px;
+            }
+            
+        }
+
         &__left {
             background-color: $darkbrown;
             margin-bottom: auto;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 70px;
             position: relative;
+
+            @media (max-width: 640px) {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    bottom: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 40px;
+                    background-color: $darkbrown;
+                    z-index: -1;
+                }
+            }
 
             h3 {
                 font-family: $headline-font;
@@ -40,28 +156,39 @@ const aspectRatio = {
                 font-weight: 900;
                 font-size: 2.5rem;
                 text-transform: uppercase;
+
+                @media (max-width: 1280px) {
+                    font-size: 2.2rem;
+                }
+
+                @media (max-width: 900px) {
+                    font-size: 1.8rem;
+                }
             }
 
             .card__description {
                 font-size: 1.125rem;
             }
 
-            &::after { 
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 100%;
-                width: 100px;
-                height: 100px;
-                background-color: $darkbrown;
-                z-index: -1;
-            }
-            
-            &::before { 
-                content: url('/assets/svg/inverted-radius.svg');
-                position: absolute;
-                top: 100%;
-                right: -1px;
+            @media (min-width: 640px) {
+
+                &::after { 
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    width: 100px;
+                    height: 100px;
+                    background-color: $darkbrown;
+                    z-index: -1;
+                }
+                
+                &::before { 
+                    content: url('/assets/svg/inverted-radius.svg');
+                    position: absolute;
+                    top: 100%;
+                    right: -1px;
+                }
             }
         }
 
@@ -69,6 +196,22 @@ const aspectRatio = {
             border: 20px solid $darkbrown;
             border-radius: 40px 190px 40px 80px;
             object-fit: cover;
+
+            @media (max-width: 768px) {
+                border: 14px solid $darkbrown;
+            }
+        }
+
+        &:nth-child(odd) img {
+            @media (max-width: 640px) {
+                border-radius: 40px 190px 40px 40px;
+            }
+        }
+
+        &:nth-child(even) img {
+            @media (max-width: 640px) {
+                border-radius: 190px 40px 40px 40px;
+            }
         }
     }
 </style>

@@ -12,14 +12,12 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
 ---
 
 <Layout title={title} description={description}>
-    <div class="container grid lg:grid-cols-12 lg:grid-flow-row">
-        <h1 class="text-4xl col-span-12 sm:text-6xl mb-12">Diensten</h1>
-        <h2 class="mb-12 col-span-6">Heeft u een elektronisch toestel dat aan reparatie toe is? Een oud stuk speelgoed dat niet meer werkt als voorheen? Wij kunnen u helpen! Hieronder een overzicht van de diensten we aanbieden.</h2>
+    <div class="container grid grid-cols-12">
+        <h1 class="col-span-12 mb-8">Diensten</h1>
+        <h2 class="mb-12 col-span-12 sm:col-span-8 xl:col-span-6">Heeft u een elektronisch toestel dat aan reparatie toe is? Een oud stuk speelgoed dat niet meer werkt als voorheen? Wij kunnen u helpen! Hieronder een overzicht van de diensten we aanbieden.</h2>
         <Card 
             cardTitle="Elektronische toestellen" 
             cardImage={electronicsImg}
-            ratioW="9"
-            ratioH="6"
         >
             <p>Elektronica kent geen geheimen voor mij. Ik werkte vroeger bij Pioneer op de hersteldienst, en ontwierp later elektronische apparaten bij Agfa.</p>
             <p>Hoe ouder het toestel, hoe makkelijker te herstellen!</p>
@@ -28,8 +26,6 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
         <Card 
             cardTitle="Elektrische toestellen" 
             cardImage={electricsImg}
-            ratioW="9"
-            ratioH="7"
         >
             <p>Ik werk al heel wat jaren ook mee in verschillende Repair Cafés en heb al heel wat soorten toestellen hersteld.</p>
             <p>Recentelijk bv. een droogkast, stofzuiger en printer.</p>
@@ -39,8 +35,6 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
         <Card 
             cardTitle="Speelgoed" 
             cardImage={toysImg}
-            ratioW="12"
-            ratioH="10"
         >
             <p>Een babygym die geen geluid meer maakt? Een treintje dat niet meer rijdt? Een kinderkeukentje met een beschadigde deur?</p>
             <p>Het kan vaak nog hersteld worden. Weeral een verkleining van de afvalberg!</p>
@@ -48,8 +42,6 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
         <Card 
             cardTitle="Restauraties" 
             cardImage={restaurationsImg}
-            ratioW="6"
-            ratioH="9"
         >
             <p>Misschien heeft u nog oude toestellen waar u aan gehecht bent?</p>
             <p>Ik kan die wellicht een nieuw leven geven!</p>
@@ -66,11 +58,3 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
     }
 
 </style>
-
-
-<!-- <script>
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-        card.querySelector(".card__image").style.minHeight = card.querySelector(".card__left").getBoundingClientRect().height / 2 * 3 + "px";
-    });
-</script> -->

@@ -10,9 +10,13 @@ import Footer from "../components/Footer.astro";
 interface Props {
 	title?: string;
 	description?: string;
+	classes?: string;
 }
 
-const { title, description } = Astro.props as Props;
+const { title, description, classes } = Astro.props as Props;
+
+const mainClasses = classes ? classes : "pt-16 md:pt-24 pb-24 md:pb-40";
+
 ---
 
 <!DOCTYPE html>
@@ -27,7 +31,7 @@ const { title, description } = Astro.props as Props;
 	</head>
 	<body>
 		<Header />
-		<main class="pt-24 pb-40 lg:px-0">
+		<main class={mainClasses}>
 			<slot />
 		</main>
 		<Footer />

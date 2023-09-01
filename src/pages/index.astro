@@ -6,15 +6,15 @@ import homeImage from '../assets/images/1-min.jpg';
 const description = 'Elektro repair Mortsel, voor al uw elektrische en elektronische herstellingen';
 ---
 
-<Layout description={description}>         
-        <div class="container grid grid-cols-12 lg:gap-10 auto-rows-auto">
-            <div class="col-span-5 flex flex-col justify-between">
-                <h1 class="text-4xl sm:text-6xl mb-12">Geef uw oud toestel een nieuw leven</h1>
-                <h2 class="mb-12">Elektro repair Mortsel, voor al uw elektrische en elektronische herstellingen.</h2>
+<Layout description={description} classes="md:pt-24 pb-24 md:pb-40">         
+        <div class="md:container flex flex-col-reverse md:flex-row xl:grid xl:grid-cols-12 gap-10">
+            <div class="content__text container flex-1 xl:col-span-5 flex flex-col">
+                <h1 class="mb-8">Geef uw oud toestel een nieuw leven</h1>
+                <h2 class="mb-8">Elektro repair Mortsel, voor al uw elektrische en elektronische herstellingen.</h2>
                 <a href="/contact" class="btn btn--gap mr-auto">Contacteer ons</a>
             </div>
-            <div class="col-span-7">
-                <img src={homeImage} alt="Elektro repair Mortsel" width="800" height=600 />
+            <div class="flex-1 self-stretch xl:col-span-7">
+                <img class="content__image mb-6 md:mt-5" src={homeImage} alt="Elektro repair Mortsel" />
             </div>
         </div>
 </Layout>
@@ -23,10 +23,34 @@ const description = 'Elektro repair Mortsel, voor al uw elektrische en elektroni
 <style lang="scss">
     @import "../style/_variables.scss";
 
-    img {
+    img.content__image {
         object-fit: cover;
-        border: 20px solid $darkbrown;
+        border: 20px solid $black;
         border-radius: 50px 50px 290px 50px;
+
+        
+        @media (max-width: 1280px) {
+            border-radius: 50px 50px 200px 50px;
+            border:14px solid $black;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            border-radius: 0 0 100px 0;
+            border: 10px solid $darkbrown;
+            border-top: 0;
+            border-left:0;
+            height: 35vh;
+            width: 100vw;
+            margin-right: -10px;
+        }
     }
-    
+
+    .content__text {
+        @media (min-width: 768px) {
+          max-width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+    }
 </style>

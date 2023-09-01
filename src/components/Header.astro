@@ -4,23 +4,23 @@ const currentPath = pathname.slice(1);
 ---
 
 <header>
-	<div class="container flex justify-between lg:grid lg:grid-cols-12 lg:gap-5 items-end pt-6 pb-4">
-		<div class="logo lg:col-span-8"><a href="/">Elektro repair Mortsel</a></div>
+	<div class="container flex justify-between lg:grid lg:grid-cols-12 lg:gap-5 items-center lg:items-end pt-6 pb-4">
+		<div class="logo lg:col-span-6 xl:col-span-8"><a href="/">Elektro repair Mortsel</a></div>
 		<div class="togglebox">
 			<span></span>
 		</div>
-		<nav class="lg:block lg:col-span-4">
-			<ul class="flex flex-col lg:grid lg:grid-cols-4 lg:gap-5 container pt-4 lg:pt-0 pb-6 lg:pb-0">
-				<li class={currentPath === "over-ons" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+		<nav class="lg:block lg:col-span-6 xl:col-span-4">
+			<ul class="flex flex-col sm:grid sm:grid-cols-4 gap-5 container pt-4 lg:pt-0 pb-6 lg:pb-0">
+				<li class={currentPath === "over-ons" ? "sm:col-span-1 active" : "sm:col-span-1"}>
           <a href="/over-ons">Over ons</a>
         </li>
-				<li class={currentPath === "diensten" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+				<li class={currentPath === "diensten" ? "sm:col-span-1 active" : "sm:col-span-1"}>
           <a href="/diensten">Diensten</a>
         </li>
-				<li class={currentPath === "hersteltips" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+				<li class={currentPath === "hersteltips" ? "sm:col-span-1 active" : "sm:col-span-1"}>
           <a href="/hersteltips">Hersteltips</a>
         </li>
-				<li class={currentPath === "contact" ? "lg:col-span-1 active" : "lg:col-span-1"}>
+				<li class={currentPath === "contact" ? "sm:col-span-1 active" : "sm:col-span-1"}>
           <a href="/contact">Contact</a>
         </li>
 			</ul>
@@ -42,14 +42,15 @@ const currentPath = pathname.slice(1);
     top: 0;
     background-color: $darkbrown;
     z-index: 99;
-
-    &.border-active > .container {
-      border-bottom: 1px solid $white;
-    }
+    border-bottom: 1px solid $white;
 
     .logo {
       font-size: 2.5rem;
       margin-top: 4px;
+
+      @media (max-width: 400px) {
+        width: 200px;
+      }
     }
     
     .togglebox {
@@ -99,10 +100,7 @@ const currentPath = pathname.slice(1);
 
       nav {
         max-height: 500px;
-
-        ul {
-          border-bottom: 1px solid $white;
-        }
+        border-bottom: 1px solid $white;
       }
     }
 
@@ -117,6 +115,10 @@ const currentPath = pathname.slice(1);
             background: $darkbrown;
             transition: max-height 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
             filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.5));
+
+            li {
+              font-size: 1.4rem;
+            }
       }
 
       ul {
@@ -127,7 +129,6 @@ const currentPath = pathname.slice(1);
         }
 
         li {
-          font-size: 1rem;
           a {
             transition: color 0.2s ease-in-out;
             &:hover {

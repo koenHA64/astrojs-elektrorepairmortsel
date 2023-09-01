@@ -4,11 +4,11 @@ import { Icon } from 'astro-icon';
 const { title, icon } = Astro.props
 ---
 
-<header class="accordeon__header flex">
-        <aside class="col-span-1 pt-2 pb-4 pl-8 mb-auto">
+<header class="accordeon__header col-span-12 md:col-span-11 grid grid-cols-12 md:grid-cols-11">
+        <aside class="w-max sm:w-auto sm:col-span-2 px-6 pt-2 sm:pt-2 sm:pb-4 sm:pl-8 mb-auto">
                 <Icon name={icon} />
         </aside>
-        <h3 class="accordeon__title pb-12 p-5">{title}</h3>
+        <h3 class="accordeon__title col-span-12 sm:col-span-10 md:col-auto md:w-min px-6 py-8 sm:pt-3 sm:px-0 sm:pl-5 md:pl-8 sm:pr-5 md:pr-12">{title}</h3>
 </header>
 
 <style lang="scss">
@@ -17,21 +17,51 @@ const { title, icon } = Astro.props
         header {
                 clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 0 calc(100% - 8px));
 
+                @media (max-width: 640px) {
+                        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4px), 0 calc(100% - 4px));
+                }
+
                 aside {
                         background-color: $darkbrown;
                         border-radius: 20px 0 0 50px;
                         position: relative;
-                        width: var(--gap);
+
+                        
+                        @media (max-width: 640px) {
+                                border-radius: 20px 20px 0 0;
+
+                                &::after {
+                                        content: url('/public/assets/svg/inverted-radius-small.svg');
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 100%;
+                                        transform: rotate(180deg);
+                                }
+                        }
+
+                        @media (min-width: 640px){
+                                &::after {
+                                        content: url('/public/assets/svg/inverted-radius.svg');
+                                        position: absolute;
+                                        top: 100%;
+                                        right: -1px;
+                                }
+                        }
 
                         svg {
                                 width: 80px;
-                        }
-                                
-                        &::after {
-                                content: url('/public/assets/svg/inverted-radius.svg');
-                                position: absolute;
-                                top: 100%;
-                                right: -1px;
+
+                                @media (max-width: 1280px) {
+                                        width: 70px;
+                                }
+
+                                @media (max-width: 1024px) {
+                                        width: 60px;
+                                }
+
+                                @media (max-width: 640px) {
+                                        width: 50px;
+                                }
                         }
                 }
 
@@ -39,19 +69,30 @@ const { title, icon } = Astro.props
                         color: $orange;
                         font-family: $headline-font;
                         font-weight: 900;
-                        font-size: 3.375rem;
+                        font-size: 4.375rem;
                         text-transform: uppercase;
                         background-color: $darkbrown;
                         border-radius: 0 50px 0 0;
                         position: relative;
+                        line-height: 1;
 
-                        &::after {
-                                content: url('/public/assets/svg/inverted-radius.svg');
-                                position: absolute;
-                                bottom: -10px;
-                                left: calc(100% - 1px);
-                                transform: rotate(180deg);
-                        }                                
+                        @media (max-width: 768px) {
+                                font-size: 2.75rem;
+                        }
+                        
+                        @media (max-width: 400px) {
+                                font-size: 2.4rem;
+                        }
+
+                        @media (min-width: 768px) {
+                                &::after {
+                                        content: url('/public/assets/svg/inverted-radius.svg');
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: calc(100% - 1px);
+                                        transform: rotate(180deg);
+                                }
+                        }               
                         
                 }
         }

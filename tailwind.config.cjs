@@ -10,8 +10,15 @@ module.exports = {
 			 xl: "1280px",
 			 "2xl": "1420px"
 		  },
-		  center: true
-		}
+		  center: true,
+		  padding: {
+			DEFAULT: '1rem',
+			sm: '2rem',
+			lg: '2rem',
+			xl: '2rem',
+			'2xl': '6rem',
+		  },
+		},
 	},
 	plugins: [],
 }
