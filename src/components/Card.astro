@@ -133,6 +133,10 @@ const { cardTitle, cardImage } = Astro.props
             background-color: $darkbrown;
             margin-bottom: auto;
             position: relative;
+            
+            @media (min-width: 640px) {
+                border-radius: 20px 0 0 20px;
+            }
 
             @media (max-width: 640px) {
                 position: relative;
