@@ -17,17 +17,18 @@ const description = 'Contacteer voor een reparatie in Mortsel';
                     <input 
                         type="text" 
                         placeholder="Naam" 
+                        name="name"
                         id="name"
-                        class="" 
                     />
                 </div>
                 <div>
                     <label for="email">Email</label>
                     <input 
                         type="email" 
-                        placeholder="Email" 
+                        placeholder="Email"
+                        name="email" 
                         id="email"
-                        class="" 
+                        value=""
                     />
                 </div>
                 <div>
@@ -35,16 +36,28 @@ const description = 'Contacteer voor een reparatie in Mortsel';
                     <input 
                         type="tel" 
                         placeholder="Telefoon" 
+                        name="phone"
                         id="phone"
-                        class="" 
+                        value=""
+                    />
+                </div>
+                <div>
+                    <label for="typenumber">Typenr. apparaat</label>
+                    <input 
+                        type="text" 
+                        placeholder="Typenr. apparaat" 
+                        name="typenumber"
+                        id="typenumber"
+                        value=""
                     />
                 </div>
                 <div>
                     <label for="message">Bericht</label>
                     <textarea 
                         placeholder="Bericht" 
+                        name="message"
                         id="message"
-                        class=""
+                        value=""
                     ></textarea>
                 </div>
                 <button type="submit" class="btn">Verstuur uw bericht</button>
@@ -81,29 +94,29 @@ const description = 'Contacteer voor een reparatie in Mortsel';
             border-radius: 15px 80px 0px 0px;
         }
 
-        position: relative;
+        // position: relative;
 
-        &::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(60,60,60,0.9);
-            border-radius: 15px 75px 0px 75px;
-            text-align: center;
-            padding: 40% 20px;
-            font-size: 1.5rem;
-            z-index: 9;
+        // &::after {
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     background-color: rgba(60,60,60,0.9);
+        //     border-radius: 15px 75px 0px 75px;
+        //     text-align: center;
+        //     padding: 40% 20px;
+        //     font-size: 1.5rem;
+        //     z-index: 9;
             
-            @media (min-width: 768px) {
-                content: "Tijdelijk niet beschikbaar, contacteer ons via de contactgegevens hiernaast";
-            }
+        //     @media (min-width: 768px) {
+        //         content: "Tijdelijk niet beschikbaar, contacteer ons via de contactgegevens hiernaast";
+        //     }
             
-            @media (max-width: 768px) {
-                content: "Tijdelijk niet beschikbaar, contacteer ons via de contactgegevens hieronder";
-            }
-        }
+        //     @media (max-width: 768px) {
+        //         content: "Tijdelijk niet beschikbaar, contacteer ons via de contactgegevens hieronder";
+        //     }
+        // }
 
         > div {
             display: flex;
@@ -200,30 +213,47 @@ const description = 'Contacteer voor een reparatie in Mortsel';
 </style>
 
 <script>
-    let emailHasBeenSent = false;
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form");
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    document.querySelector("form").addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.target);
-
-        fetch('send_email.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector(".contact__content").style.display = "none";
-            document.querySelector("h2").innerText = "Your email has been sent!";
-            const statusMessage = document.getElementById('statusMessage');
-            if (data.success) {
-                document.querySelector("h2").innerText = "Uw e-mail werd verzonden, we contacteren u zo snel mogelijk!";
-            } else {
-                document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
+            const formDataObj = {
+                "name": document.querySelector('input[name="name"]').value,
+                "email": document.querySelector('input[name="email"]').value,
+                "phone": document.querySelector('input[name="phone"]').value,
+                "typenumber": document.querySelector('input[name="typenumber"]').value,
+                "message": document.querySelector('textarea[name="message"]').value
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
+            
+            const formData = new FormData();
+
+            for (let key in formDataObj) {
+                formData.append(key, formDataObj[key]);
+            }
+
+            console.log("formData", formData);
+
+            fetch('/php/send_email.php', {
+                method: 'POST',            
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector(".contact__content").style.display = "none";
+                document.querySelector("h2").innerText = "Your email has been sent!";
+                if (data.success) {
+                    document.querySelector("h2").innerText = "Uw e-mail werd verzonden, we contacteren u zo snel mogelijk!";
+                } else {
+                    console.log("error", data)
+                    document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
+                }
+            })
+            .catch(error => {
+                console.log("error", error);
+                document.querySelector(".contact__content").style.display = "none";
+                document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
+            });
         });
     });
 </script>
