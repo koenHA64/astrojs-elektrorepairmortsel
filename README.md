@@ -10,4 +10,4 @@ To make it work:
 - run `npm install`
 - adjust the .env.example file in the /public/php folder and install all composer dependencies by running `composer.phar install` in that same directory
 
-Deployed at Netlify: https://vermillion-griffin-133731.netlify.app/ (mail form doesn't there because PHP is not supported by Netlify)
+Deployed at Netlify: https://vermillion-griffin-133731.netlify.app/ (mail form doesn't work there because PHP is not supported by Netlify)
