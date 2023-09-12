@@ -8,6 +8,6 @@ Website built for my dad's business, using AstroJS
 
 To make it work:
 - run `npm install`
-- adjust the .env.example file in the /public/php folder and install all composer dependencies in that same directory
+- adjust the .env.example file in the /public/php folder and install all composer dependencies by running `composer.phar install` in that same directory
 
 Deployed at Netlify: https://vermillion-griffin-133731.netlify.app/ (Mail function doesn't work because PHP is not supported by Netlify)
