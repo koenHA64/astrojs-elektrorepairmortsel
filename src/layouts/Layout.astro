@@ -30,6 +30,15 @@ const mainClasses = classes ? classes : "pt-16 md:pt-24 / pb-24 md:pb-40";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>
 	<body>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CR9LHHPFX7"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-CR9LHHPFX7');
+		</script>
 		<Header />
 		<main class={mainClasses}>
 			<slot />
