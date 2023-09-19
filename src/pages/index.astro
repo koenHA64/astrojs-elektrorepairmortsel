@@ -6,15 +6,15 @@ import homeImage from '../assets/images/1-min.jpg';
 const description = 'Elektro repair Mortsel, voor al uw elektrische en elektronische herstellingen';
 ---
 
-<Layout description={description} classes="md:pt-24 pb-24 md:pb-40">         
-        <div class="md:container flex flex-col-reverse md:flex-row xl:grid xl:grid-cols-12 gap-10">
-            <div class="content__text container flex-1 col-span-12 sm:col-span-10 md:col-span-8 xl:col-span-5 flex flex-col">
+<Layout description={description} classes="md:pt-24 / pb-24 md:pb-40">         
+        <div class="md:container | flex flex-col-reverse md:flex-row xl:grid | xl:grid-cols-12 | gap-10">
+            <div class="content__text || container | flex flex-col | col-span-12 sm:col-span-10 md:col-span-8 xl:col-span-5">
                 <h1 class="mb-8">Geef uw oud toestel een nieuw leven</h1>
                 <h2 class="mb-8">Elektro repair Mortsel, voor al uw elektrische en elektronische herstellingen.</h2>
-                <a href="/contact" class="btn btn--gap mr-auto">Contacteer ons</a>
+                <a href="/contact" class="btn btn--gap || mr-auto">Contacteer ons</a>
             </div>
-            <div class="flex-1 self-stretch xl:col-span-7">
-                <img class="content__image mb-6 md:mt-5" src={homeImage} alt="Elektro repair Mortsel" />
+            <div class="xl:col-span-7">
+                <img class="content__image | mb-6 / md:mt-5" src={homeImage} alt="Elektro repair Mortsel" />
             </div>
         </div>
 </Layout>

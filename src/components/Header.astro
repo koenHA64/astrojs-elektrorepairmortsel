@@ -4,13 +4,13 @@ const currentPath = pathname.slice(1);
 ---
 
 <header>
-	<div class="container flex justify-between lg:grid lg:grid-cols-12 lg:gap-5 items-center lg:items-end pt-6 pb-4">
-		<div class="logo lg:col-span-6 xl:col-span-8"><a href="/">Elektro repair Mortsel</a></div>
+	<div class="container | flex justify-between items-center lg:grid lg:items-end | lg:grid-cols-12 | lg:gap-5 | pt-6 / pb-4">
+		<div class="logo || lg:col-span-6 xl:col-span-8"><a href="/">Elektro repair Mortsel</a></div>
 		<div class="togglebox">
 			<span></span>
 		</div>
-		<nav class="lg:block lg:col-span-6 xl:col-span-4">
-			<ul class="flex flex-col sm:grid sm:grid-cols-4 gap-5 container pt-4 lg:pt-0 pb-6 lg:pb-0">
+		<nav class="lg:block | lg:col-span-6 xl:col-span-4">
+			<ul class="container | flex flex-col sm:grid | sm:grid-cols-4 | gap-5 | pt-4 lg:pt-0 / pb-6 lg:pb-0">
 				<li class={currentPath === "over-ons" ? "sm:col-span-1 active" : "sm:col-span-1"}>
           <a href="/over-ons">Over ons</a>
         </li>
@@ -30,7 +30,7 @@ const currentPath = pathname.slice(1);
 
 <script>
 	document.querySelector(".togglebox").addEventListener("click", () => {
-		document.querySelector("header").classList.toggle("dropdown-active");
+		document.querySelector("header").classList.toggle(" // dropdown-active");
   });
 </script>
 

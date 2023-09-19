@@ -4,22 +4,22 @@ import { Icon } from 'astro-icon';
 const { problem, symptoms, causesSolutions } = Astro.props
 ---
 
-<section class="accordeon__content accordeon__content--hidden col-span-12 md:col-span-11 grid grid-cols-12 md:grid-cols-11">
-        <div class="accordeon__problem col-span-12 sm:col-span-10 md:col-span-9 sm:col-start-3 grid grid-cols-12 sm:grid-cols-10 md:grid-cols-9 gap-5">
-                <h4 class="col-span-9 sm:col-span-7 md:col-span-7 py-12 pl-6 sm:pl-14 pr-4">{problem}</h4>
-                <div class="accordeon__toggle col-span-3 md:col-span-2 flex justify-center items-center">
+<section class="accordeon__content || grid | grid-cols-12 md:grid-cols-11 | col-span-12 md:col-span-11 // accordeon__content--hidden">
+        <div class="accordeon__problem || grid | grid-cols-12 sm:grid-cols-10 md:grid-cols-9 | col-span-12 sm:col-span-10 md:col-span-9 | sm:col-start-3 | gap-5">
+                <h4 class="col-span-9 sm:col-span-7 | py-12 / pl-6 sm:pl-14 / pr-4">{problem}</h4>
+                <div class="accordeon__toggle || flex justify-center items-center | col-span-3 md:col-span-2">
                         <Icon name="accordeon-plus" />
                         <Icon name="accordeon-minus" />
                 </div>
         </div>
-        <div class="accordeon__information col-span-12 sm:col-span-10 md:col-span-9 sm:col-start-3 grid grid-cols-10 md:grid-cols-9 gap-5">
-                <div class="col-span-10 md:col-span-9 grid grid-cols-10 md:grid-cols-9 gap-5">
-                        <div class="accordeon__symptoms col-span-10 md:col-span-9 md:col-start-2 mb-20 md:mb-24 pl-10 sm:pl-14 lg:pl-24 xl:pl-36 pr-6 sm:pr-14">
+        <div class="accordeon__information || grid | grid-cols-10 md:grid-cols-9 | col-span-12 sm:col-span-10 md:col-span-9 | sm:col-start-3 | gap-5">
+                <div class="grid | col-span-10 md:col-span-9 | grid-cols-10 md:grid-cols-9 | gap-5">
+                        <div class="accordeon__symptoms || col-span-10 md:col-span-9 | md:col-start-2 | mb-20 md:mb-24 | pl-10 sm:pl-14 lg:pl-24 xl:pl-36 / pr-6 sm:pr-14">
                                 <ul class="ml-6">
                                         {symptoms.map(symptom => <li>{symptom}</li>)}
                                 </ul>
                         </div>
-                        <div class="accordeon__causes col-span-10 md:col-span-9 md:col-start-2 pl-10 sm:pl-14 lg:pl-24 xl:pl-36 pr-6 sm:pr-14">
+                        <div class="accordeon__causes || col-span-10 md:col-span-9 | md:col-start-2 | pl-10 sm:pl-14 lg:pl-24 xl:pl-36 / pr-6 sm:pr-14">
                                 <ul class="ml-6">
                                         {causesSolutions.map(item =>      
                                                         <li>
@@ -303,7 +303,7 @@ const { problem, symptoms, causesSolutions } = Astro.props
 <script>
         allProblems = document.querySelectorAll('.accordeon__content').forEach(prob => {
                 prob.querySelector(".accordeon__problem").addEventListener('click', () => {
-                        prob.classList.toggle('accordeon__content--hidden');
+                        prob.classList.toggle(' // accordeon__content--hidden');
                 })
         })
 </script>

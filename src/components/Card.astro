@@ -2,14 +2,15 @@
 const { cardTitle, cardImage } = Astro.props
 ---
 
-<article class="card flex flex-col-reverse sm:grid col-span-12 grid-cols-12 md:grid-cols-11 md:col-span-11">
-    <div class="card__left sm:col-span-6 md:col-span-5 pt-3 pb-8 px-4 sm:pt-4 md:pt-5 sm:pb-12 md:pb-16 sm:pl-6 md:pl-8">
+<article class="card || flex flex-col-reverse sm:grid sm:grid-cols-12 md:grid-cols-11 | col-span-12 md:col-span-11">
+    <div class="card__left || sm:col-span-6 md:col-span-5 | pt-3 sm:pt-4 md:pt-5 / pb-8 sm:pb-12 md:pb-16 / px-4 sm:pl-6 md:pl-8">
         <h3 class="mb-4">{cardTitle}</h3>
         <div class="card__description">
             <slot />
         </div>
     </div>
-    <img src={cardImage} alt={cardTitle} class="card__image sm:col-span-6" />
+    <img src={cardImage} alt={cardTitle} class="card__image || sm:col-span-6" />
+</article>
 
 <style lang="scss">
     @import "../style/_variables.scss";
