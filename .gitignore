@@ -8,6 +8,9 @@ dist/
 node_modules/
 vendor/
 
+# vscode
+.vscode/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -20,3 +23,5 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+# Local Netlify folder
+.netlify

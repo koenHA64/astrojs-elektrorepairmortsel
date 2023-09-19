@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $typenumber = $_POST['typenumber'];
         $message = $_POST['message'];
 
-        $mail->setFrom('webdesign@prepressautomation.be', 'Elektro repair Mortsel');
+        $mail->setFrom($_ENV['MAIL_USERNAME'], 'Elektro repair Mortsel');
         $mail->addAddress($recipient, 'Elektro repair Mortsel');
 
         $mail->isHTML(false);

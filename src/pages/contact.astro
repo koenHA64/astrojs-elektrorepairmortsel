@@ -6,12 +6,12 @@ const description = 'Contacteer voor een reparatie in Mortsel';
 ---
 <Layout description={description} title={title}>         
     <div class="container grid grid-cols-12 lg:gap-10 auto-rows-auto">
-        <div class="col-span-8 flex flex-col">
+        <div class="col-span-12 md:col-span-8 flex flex-col">
             <h1 class="mb-8">Contacteer ons</h1>
             <h2 class="mb-12">Interesse in een reparatie? Contacteer ons via het onderstaande formulier of onze contactgegevens</h2>
         </div>
         <div class="contact__content col-span-12 grid grid-cols-12">
-            <form class="col-span-12 md:col-span-6 xl:col-span-7 md:col-start-2 p-8 md:px-6 md:py-6 lg:px-8 lg:py-8">
+            <form class="col-span-12 md:col-span-6 xl:col-span-7 md:col-start-2 p-8 md:px-6 md:py-6 lg:px-8 lg:py-8" data-netlify="true" name="contact">
                 <div>
                     <label for="name">Naam</label>
                     <input 
@@ -213,47 +213,28 @@ const description = 'Contacteer voor een reparatie in Mortsel';
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.querySelector("form");
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+    const form = document.querySelector("form");
 
-            const formDataObj = {
-                "name": document.querySelector('input[name="name"]').value,
-                "email": document.querySelector('input[name="email"]').value,
-                "phone": document.querySelector('input[name="phone"]').value,
-                "typenumber": document.querySelector('input[name="typenumber"]').value,
-                "message": document.querySelector('textarea[name="message"]').value
-            }
-            
-            const formData = new FormData();
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-            for (let key in formDataObj) {
-                formData.append(key, formDataObj[key]);
-            }
+        const formData = e.target;
+        const formDataObj = new FormData(formData);
 
-            console.log("formData", formData);
-
-            fetch('/php/send_email.php', {
-                method: 'POST',            
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.querySelector(".contact__content").style.display = "none";
-                document.querySelector("h2").innerText = "Your email has been sent!";
-                if (data.success) {
-                    document.querySelector("h2").innerText = "Uw e-mail werd verzonden, we contacteren u zo snel mogelijk!";
-                } else {
-                    console.log("error", data)
-                    document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
-                }
-            })
-            .catch(error => {
-                console.log("error", error);
-                document.querySelector(".contact__content").style.display = "none";
-                document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
-            });
+        fetch('/php/send_email.php', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formDataObj).toString(),
+        })
+        .then(response => {
+            document.querySelector(".contact__content").style.display = "none";
+            console.log("succes", response);
+            document.querySelector("h2").innerText = "Uw e-mail werd verzonden, we contacteren u zo snel mogelijk!";
+        })
+        .catch(error => {
+            console.log("error", error);
+            document.querySelector(".contact__content").style.display = "none";
+            document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
         });
     });
 </script>
