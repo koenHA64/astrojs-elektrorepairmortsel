@@ -221,15 +221,20 @@ const description = 'Contacteer voor een reparatie in Mortsel';
         const formData = e.target;
         const formDataObj = new FormData(formData);
 
-        fetch('/php/send_email.php', {
+        fetch('/', {
             method: 'POST',
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formDataObj).toString(),
         })
         .then(response => {
-            document.querySelector(".contact__content").style.display = "none";
-            console.log("succes", response);
-            document.querySelector("h2").innerText = "Uw e-mail werd verzonden, we contacteren u zo snel mogelijk!";
+            if (response.ok){
+                document.querySelector(".contact__content").style.display = "none";
+                document.querySelector("h2").innerText = "Uw e-mail werd verzonden, we contacteren u zo snel mogelijk!";
+            } else {
+                console.log("error", response);
+                document.querySelector(".contact__content").style.display = "none";
+                document.querySelector("h2").innerText = "Wegens een fout kon uw e-mail niet verzonden worden via het formulier, gelieve ons te contacteren via info@elektrorepairmortsel.be";
+            }
         })
         .catch(error => {
             console.log("error", error);
