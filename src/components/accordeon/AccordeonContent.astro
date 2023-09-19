@@ -303,7 +303,7 @@ const { problem, symptoms, causesSolutions } = Astro.props
 <script>
         allProblems = document.querySelectorAll('.accordeon__content').forEach(prob => {
                 prob.querySelector(".accordeon__problem").addEventListener('click', () => {
-                        prob.classList.toggle(' // accordeon__content--hidden');
+                        prob.classList.toggle('accordeon__content--hidden');
                 })
         })
 </script>
