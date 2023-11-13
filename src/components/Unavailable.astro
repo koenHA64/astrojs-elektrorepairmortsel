@@ -1,0 +1,20 @@
+---
+const { date } = Astro.props;
+---
+
+<section class="py-6 text-xl">
+        <div class="container">
+                We zijn momenteel gesloten, gelieve ons dus niet telefonisch te contacteren.<br><br>
+                Vanaf {date} zijn we terug bereikbaar.
+        </div>
+</section>
+
+<style lang="scss">
+        @import "../style/_variables.scss";
+            
+        section {
+                background-color: $orange;
+                color: $white;
+        }
+    
+    </style>

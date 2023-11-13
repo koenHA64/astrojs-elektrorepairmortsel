@@ -1,7 +1,18 @@
 ---
+
+import Unavailable from "./Unavailable.astro";
+
+const endDateBool = true;
+const endDate = new Date('2023-11-21T00:00:00');
+const options = { timeZone: 'Europe/Brussels', day: 'numeric', month: 'numeric', year: 'numeric' };
+const endDateTLS = endDate.toLocaleString('en-BE', options);
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
+
+{endDateBool && endDate > new Date() && <Unavailable date={endDateTLS} />}
+
 
 <header>
 	<div class="container | flex justify-between items-center lg:grid lg:items-end | lg:grid-cols-12 | lg:gap-5 | pt-6 / pb-4">
