@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon';
 
 import Unavailable from "./Unavailable.astro";
 
@@ -16,7 +17,12 @@ const currentPath = pathname.slice(1);
 
 <header>
 	<div class="container | flex justify-between items-center lg:grid lg:items-end | lg:grid-cols-12 | lg:gap-5 | pt-6 / pb-4">
-		<div class="logo || lg:col-span-6 xl:col-span-8"><a href="/">Elektro repair Mortsel</a></div>
+		<div class="logo || lg:col-span-6 xl:col-span-8">
+      <a href="/" class="flex relative">
+        <Icon name = "erm-logo" />
+        Elektro repair Mortsel
+      </a>
+    </div>
 		<div class="togglebox">
 			<span></span>
 		</div>
@@ -61,6 +67,37 @@ const currentPath = pathname.slice(1);
 
       @media (max-width: 400px) {
         width: 200px;
+      }
+
+      svg {
+        margin-right: 10px;
+        margin-bottom: auto;
+
+        @media (min-width: 1280px){
+          height: 35px;
+        }        
+        
+        @media (max-width: 1280px) and (min-width: 1024px){
+          height: 60px;
+          position: absolute;
+          left: -80px;
+        }
+
+        
+        @media (max-width: 1024px) and (min-width: 730px){
+          height: 35px;
+        }
+        
+        @media (max-width: 730px) and (min-width: 500px){
+          height: 60px;
+          margin-top: 6px;
+        }
+
+        @media (max-width: 500px){
+          height: 110px;
+        }
+
+
       }
     }
     
