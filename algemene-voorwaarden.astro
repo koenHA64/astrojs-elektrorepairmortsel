@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Algemene voorwaarden';
+const description = 'Algemene voorwaarden van Elektro repair Mortsel';
+---
+<Layout description={description} title={title}>         
+    <div class="container | grid | grid-cols-12">
+        <div class="flex flex-col | col-span-12 md:col-span-8">
+                <h1 class="mb-12">Algemene voorwaarden</h1>
+                <div>
+                        <h2>Kosten</h2>
+                        <p>Werkuren worden aangerekend per begonnen half uur, met een minimum van 1 uur. De werkuren omvatten ook het opzoeken en bestellen van vervangonderdelen.</p>
+                        <p>Verplaatsingskosten met de wagen worden aangerekend aan 0,4 euro/km. Bij andere verplaatsingen buiten Mortsel gelden de werkuren van vertrek tot terugkomst in de staanplaats.</p>
+                        <p>Een voorschot is vereist bij het bestellen van wisselstukken.</p>
+                        <p>De standaard bestekkost is 0,5 uur voor een eenvoudig toestel en 1 werkuur voor een complex toestel.</p>
+                        <p>Voor niet afgehaalde toestellen wordt een recyclagekost van 5 euro aangerekend</p>
+                </div>                
+                <div>
+                        <h2>Niet afgehaalde toestellen</h2>
+                        <p>Voor niet afgehaalde toestellen, waarvan de rekening voldaan werd, wordt een extra recyclagekost van 5 euro aangerekend.</p>
+                        <p>Toestellen, die 3 maand na herstelling nog niet afgehaald werden en waarvan de rekening niet voldaan werd, worden eigendom van Elektro repair Mortsel. De kosten voor de onderdelen blijven nog steeds verschuldigd.</p>
+                </div>
+                <div>
+                        <h2>Plaats van herstelling</h2>
+                        <p>De toestellen dienen ter herstelling aangeboden te worden op het adres van de firma, samen met de benodigde kabels en test media.</p>
+                </div>
+                <div>
+                        <h2>Risico's</h2>
+                        <p>Moderne, niet professionele, toestellen zijn vaak vastgelijmd. Bij herstellen kan er dan beschadiging optreden van de behuizing. Dit wordt dan overlegd met de klant.</p>
+                </div>
+                <div>
+                        <h2>Garantie</h2>
+                        <p>Er is geen garantie op de herstelling, maar bij originele wisselstukken is er wel de officiële garantie van de fabrikant (zonder werkuren).</p>
+                </div>
+                <div>
+                        <h2>Betalingen</h2>
+                        <p>U hoeft geen BTW te betalen door de bijzondere vrijstelling voor kleine ondernemingen.</p>
+                        <p>Betalingen dienen te gebeuren binnen de 14 dagen na het versturen van de factuur.</p>
+                        <p>Na de vervaldatum wordt een administratieve kost aangerekend van 25 euro en een verwijlintrest van 15%.</p>
+                </div>
+                <div>
+                        <h2>Geschillen</h2>
+                        <p>Enkel de rechtbanken van het gerechtelijk arrondissement waar de zetel van Prepress Automation gevestigd is, zijn bevoegd om kennis te nemen van eventuele geschillen.</p>
+                        <p>De schadevergoeding in hoofde van Prepress Automation is beperkt tot hetgeen de aansprakelijkheidsverzekeraar uitkeert.</p>
+                </div>
+        </div>
+</Layout>
+
+<style lang="scss">
+    @import "../style/_variables.scss";
+
+    div:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-family: $headline-font;
+        text-transform: uppercase;
+        margin-bottom: 1rem !important;
+    }
+
+    h2::before {
+        top: 16px !important;
+    }
+
+    p {
+        font-size: 1.375rem;
+        color: $black;
+        padding-left: var(--gap);
+
+        + p {
+                margin-top: 1rem;
+        }
+    }
+
+    
+</style>
