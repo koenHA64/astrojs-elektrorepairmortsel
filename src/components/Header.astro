@@ -5,6 +5,7 @@ import Unavailable from "./Unavailable.astro";
 
 const endDateBool = true;
 const endDate = new Date(2024, 7, 16);
+const currentDate = new Date();
 const options = { timeZone: 'Europe/Brussels', day: 'numeric', month: 'numeric', year: 'numeric' };
 const endDateTLS = endDate.toLocaleString('en-BE', options);
 
@@ -12,7 +13,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
-{endDateBool && <Unavailable date={endDateTLS} />}
+{endDateBool && endDate > currentDate && <Unavailable date={endDateTLS} />}
 
 
 <header>
