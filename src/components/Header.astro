@@ -3,8 +3,8 @@ import { Icon } from 'astro-icon';
 
 import Unavailable from "./Unavailable.astro";
 
-const endDateBool = false;
-const endDate = new Date('2024-02-04T00:00:00');
+const endDateBool = true;
+const endDate = new Date(2024, 7, 16);
 const options = { timeZone: 'Europe/Brussels', day: 'numeric', month: 'numeric', year: 'numeric' };
 const endDateTLS = endDate.toLocaleString('en-BE', options);
 
