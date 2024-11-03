@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon';
 
 import Unavailable from "./Unavailable.astro";
 
-const endDateBool = false;
 const endDate = new Date(2024, 8, 22);
 const currentDate = new Date();
 const options = { timeZone: 'Europe/Brussels', day: 'numeric', month: 'numeric', year: 'numeric' };
@@ -13,7 +12,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
-{endDateBool && endDate > currentDate && <Unavailable date={endDateTLS} />}
+{endDate > currentDate && <Unavailable date={endDateTLS} />}
 
 
 <header>
