@@ -170,6 +170,72 @@ const description = 'Wilt u ontdekken waarom uw elektronisch apparaat het niet m
 
             <Accordeon>
                 <AccordeonHeader 
+                    title="Platenspeler" 
+                    icon="cassette-logo"
+                />
+                <AccordeonContent 
+                    problem="Plateau draait niet en motor draait niet" 
+                    symptoms={
+                        [
+                            "Er is spanning (lichtje) maar na het starten of bewegen van de arm draait de plateau niet en hoor je geen motor draaien"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "motor defect",
+                                solution: "zeldzaam, een andere motor vinden is moeilijk"
+                            },
+                            {
+                                cause: "motor lager vastgelopen (vet verhard)",
+                                solution: "herstellen, lagervet moet vervangen worden (simpel)"
+                            },
+                        ]
+                    }
+                />
+                <AccordeonContent 
+                    problem="Plateau draait niet en maar motor wel" 
+                    symptoms={
+                        [
+                            "Er is spanning (lichtje) maar na het starten of bewegen van de arm draait de plateau niet maar hoor je de motor wel draaien"
+                        ]
+                    }
+                    causesSolutions={
+                        [
+                            {
+                                cause: "aandrijfriem is verduurd of losgekomen (frequent na 15 jaar)",
+                                solution: "herstellen, vervangen riem (simpel)"
+                            },
+                            {
+                                cause: "schakelaar ontregeld",
+                                solution: "herstellen"
+                            }
+                            {
+                                cause: "intern mechanisme ontregeld, vet verhard",
+                                solution: "herstellen, vet kan vervangen worden maar een ontregeld mechanisme is moeilijk te herstellen"
+                            }                       ]
+                    }
+                />
+                <AccordeonContent 
+                problem="Geen of te zacht geluid" 
+                symptoms={
+                    [
+                        "er komt bijna geen muziek, je moet de volumeregelaar helemaal open zetten (moderne versterker, oude platenspeler)"
+                    ]
+                }
+                causesSolutions={
+                    [
+                        {
+                            cause: "versterker heeft geen Phono ingang en platenspeler is oud (geen aux uitgang)",
+                            solution: "een Phono voorversterker kopen en tussen plaatsen (25 euro)"
+                        },
+                    ]
+                }
+            />
+            </Accordeon>
+
+            <Accordeon>
+                <AccordeonHeader 
                     title="Strijkijzer" 
                     icon="iron-logo"
                 />
