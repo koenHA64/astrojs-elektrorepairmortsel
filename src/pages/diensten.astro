@@ -4,8 +4,10 @@ import Card from '../components/Card.astro';
 
 import electronicsImg from '../assets/images/electronics-min.jpg'
 import electricsImg from '../assets/images/electrics-min.jpg'
+import boormachineImg from '../assets/images/boormachine.jpg'
 import toysImg from '../assets/images/toys-min.jpg'
 import restaurationsImg from '../assets/images/restaurations-min.jpg'
+
 
 const title = 'Diensten';
 const description = 'Ik herstel uw elektrische en/of elektronische toestellen. Ook de reparatie van oud speelgoed is mogelijk.';
@@ -16,7 +18,7 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
         <h1 class="col-span-12 md:col-span-8 | mb-8">Diensten</h1>
         <h2 class="col-span-12 md:col-span-8 xl:col-span-6 | mb-12">Heeft u een elektronisch toestel dat aan reparatie toe is? Een oud stuk speelgoed dat niet meer werkt als voorheen? Wij kunnen u helpen! Hieronder een overzicht van de diensten we aanbieden.</h2>
         <Card 
-            cardTitle="Elektronische toestellen" 
+            cardTitle="Elektronische (audio) toestellen" 
             cardImage={electronicsImg}
         >
             <p>Elektronica kent geen geheimen voor mij. Ik werkte vroeger bij Pioneer op de hersteldienst, en ontwierp later elektronische apparaten bij Agfa.</p>
@@ -24,14 +26,23 @@ const description = 'Ik herstel uw elektrische en/of elektronische toestellen. O
         </Card>
 
         <Card 
-            cardTitle="Elektrische toestellen" 
+            cardTitle="Elektrische (huishoud) toestellen" 
             cardImage={electricsImg}
         >
             <p>Ik werk al heel wat jaren ook mee in verschillende Repair Cafés en heb al heel wat soorten toestellen hersteld.</p>
-            <p>Recentelijk bv. een droogkast, stofzuiger en printer.</p>
-            <p>Voorlopig voer ik geen herstelling uit van grotere toestellen (een vaatwasser, ijskast, wasmachine,...).</p>
+            <p>Recentelijk bv. een platenspeler, microgolf, staanlamp, stofzuiger en versterker.</p>
+            <p>Ik voer echter geen herstelling meer uit van grotere toestellen (een vaatwasser, ijskast, wasmachine,...).</p>
         </Card>
         
+        <Card 
+        cardTitle="Elektrisch gereedschap" 
+        cardImage={boormachineImg}
+        >
+            <p>Elektrisch gereedschap wordt vaak ruw behandeld en de aansluitingen beschadigd.</p>
+            <p>Weigert het gereedschap plots dienst, of misschien nog even als u de kabel beweegt bij de stekker of machine?</p>
+            <p>Dat kan ik vaak eenvoudig fixen.</p>        
+        </Card>
+
         <Card 
             cardTitle="Speelgoed" 
             cardImage={toysImg}
